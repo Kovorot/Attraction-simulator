@@ -6,15 +6,14 @@ public class Person {
     protected String surname;
     protected int ticketAmount;
 
+    //Конструктор
     public Person (String name, String surname, int ticketAmount) {
         this.name = name;
         this.surname = surname;
         this.ticketAmount = ticketAmount;
     }
 
-    public String present() {
-        return name + " " + surname;
-    }
+    //Инкапсуляция:
 
     public void setName(String name) {
         if(Character.isUpperCase(name.charAt(0))) {
