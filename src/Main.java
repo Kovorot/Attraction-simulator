@@ -1,13 +1,20 @@
 import java.util.LinkedList;
 import java.util.List;
+import clients.Person;
 
 public class Main {
-
-    public static List list = new LinkedList();
     public static void main(String[] args) {
 
     }
 
     public static List<Person> generateClients() {
+        List list = new LinkedList();
+        list.add(new Person("Boris", "Yeltsin", 3));
+        list.add(new Person("Evgeny", "Prigozin", 1));
+        list.add(new Person("Alexey", "Panfilov", 1));
+        list.add(new Person("Alena", "Zargekova", 2));
+        list.add(new Person("Georgy", "Vlasov", 4));
+        list.add(new Person("Filip", "Voronov", 2));
+        return list;
     }
 }
