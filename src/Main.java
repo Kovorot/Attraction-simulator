@@ -1,10 +1,18 @@
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
+
 import clients.Person;
 
 public class Main {
     public static void main(String[] args) {
 
+        Queue<Person> queue = new LinkedList<>();
+
+        while (!queue.isEmpty()) {
+            Person next = queue.poll();
+            System.out.println(next.present()  + " прокатился на аттракционе.");
+        }
     }
 
     public static List<Person> generateClients() {
