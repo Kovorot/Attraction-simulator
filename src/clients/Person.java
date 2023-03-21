@@ -1,7 +1,5 @@
 package clients;
 
-import java.util.Locale;
-
 public class Person {
 
     protected String name;
@@ -43,10 +41,10 @@ public class Person {
     }
 
     public void setTicketAmount(int amount) {
-        if(amount < 0) {
+        if(amount <= 0) {
             return;
         } else {
-            ticketAmount = amount;
+            ticketAmount -= amount;
         }
     }
 

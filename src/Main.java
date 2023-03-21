@@ -1,28 +1,33 @@
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 import clients.Person;
 
 public class Main {
-    public static void main(String[] args) {
 
-        Queue<Person> queue = new LinkedList<>();
+    public static final int PRICE = 1;
+    public static void main(String[] args) throws Exception {
+
+        Queue<Person> queue = generateClients();
 
         while (!queue.isEmpty()) {
-            Person next = queue.poll();
-            System.out.println(next.present()  + " прокатился на аттракционе.");
+            Person nextClient = queue.poll();
+            System.out.println(nextClient.present()  + " прокатился на аттракционе.");
+            nextClient.setTicketAmount(PRICE);
+            if (nextClient.getTicketAmount() != 0) {
+                queue.offer(nextClient);
+            }
+            Thread.sleep(1000);
         }
     }
 
-    public static List<Person> generateClients() {
-        List list = new LinkedList();
-        list.add(new Person("Boris", "Yeltsin", 3));
-        list.add(new Person("Evgeny", "Prigozin", 1));
-        list.add(new Person("Alexey", "Panfilov", 1));
-        list.add(new Person("Alena", "Zargekova", 2));
-        list.add(new Person("Georgy", "Vlasov", 4));
-        list.add(new Person("Filip", "Voronov", 2));
-        return list;
+    public static Queue generateClients() {
+        Queue queue = new LinkedList();
+        queue.offer(new Person("Boris", "Yeltsin", 3));
+        queue.offer(new Person("Evgeny", "Prigozin", 1));
+        queue.offer(new Person("Alexey", "Panfilov", 1));
+        queue.offer(new Person("Alena", "Zargekova", 2));
+        queue.offer(new Person("Georgy", "Vlasov", 4));
+        queue.offer(new Person("Filip", "Voronov", 2));
+        return queue;
     }
 }
